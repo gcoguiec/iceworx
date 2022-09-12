@@ -1,0 +1,22 @@
+_default:
+  @just --list
+
+# Install dependencies.
+install:
+  pip3 install -r requirements.txt
+
+# Synthesize, place-and-route and compile this project.
+synth:
+  python3 build.py
+
+# Compile the testbench.
+testbench:
+  python3 testbench.py
+
+# Flash the device.
+flash DEVICE: synth
+  iceworx flash --device {{DEVICE}} ./build/top.bin
+
+# Clean all-the-things
+clean:
+  @rm -fr __pycache__ build *.v *.asc *.bin *.vcd *.json

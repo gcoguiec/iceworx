@@ -1,0 +1,16 @@
+[timestart] 0
+[size] 2560 350
+[pos] 1572 262
+*-2.000000 255 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 193
+[signals_width] 141
+[sst_expanded] 1
+[sst_vpaned_height] 80
+@28
+clk
+l1
+l2
+@23
+counter[11:0]
+[pattern_trace] 1
+[pattern_trace] 0

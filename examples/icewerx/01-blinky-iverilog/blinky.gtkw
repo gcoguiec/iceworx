@@ -1,0 +1,17 @@
+[timestart] 0
+[size] 1512 916
+[pos] -1 -1
+*-5.957331 100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] blinky_bench.
+[sst_width] 193
+[signals_width] 141
+[sst_expanded] 1
+[sst_vpaned_height] 278
+@28
+blinky_bench.blinky.clk[0]
+blinky_bench.blinky.l1[0]
+blinky_bench.blinky.l2[0]
+@23
+blinky_bench.blinky.counter[11:0]
+[pattern_trace] 1
+[pattern_trace] 0

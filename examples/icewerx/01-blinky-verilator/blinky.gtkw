@@ -1,0 +1,17 @@
+[timestart] 1
+[size] 1000 600
+[pos] -1 -1
+*-7.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[sst_width] 193
+[signals_width] 141
+[sst_expanded] 1
+[sst_vpaned_height] 167
+@28
+TOP.blinky.clk
+TOP.blinky.l1
+TOP.blinky.l2
+@23
+TOP.blinky.counter[11:0]
+[pattern_trace] 1
+[pattern_trace] 0

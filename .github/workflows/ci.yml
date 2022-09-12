@@ -1,0 +1,74 @@
+name: CI
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  RUST_LOG: info
+  RUST_BACKTRACE: 1
+
+jobs:
+  workspace:
+    uses: gcoguiec/.rust/.github/workflows/workspace.yml@main
+  format:
+    needs: workspace
+    uses: gcoguiec/.rust/.github/workflows/format.yml@main
+  lint:
+    needs: workspace
+    name: Lint code-base.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Install libusb
+        run: sudo apt update && sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev
+      - name: Setup rust toolchain
+        run: rustup show
+      - name: Restore cargo cache
+        uses: Swatinem/rust-cache@v1
+      - name: Run cargo check
+        uses: actions-rs/cargo@v1
+        with:
+          command: check
+          args: --workspace --all-targets --release
+      - name: Run clippy
+        uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+          args: --workspace --all-targets --verbose -- --deny warnings
+      - name: Run cspell
+        uses: streetsidesoftware/cspell-action@v1
+        with:
+          files: "**/*.{rs,json,toml,md,yml}"
+  test:
+    needs: workspace
+    name: Run test-suite.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source.
+        uses: actions/checkout@v3
+      - name: Install libusb
+        run: sudo apt update && sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev
+      - name: Setup rust toolchain.
+        run: rustup show
+      - name: Restore cargo cache.
+        uses: Swatinem/rust-cache@v1
+      - name: Compile test binary.
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --no-run --workspace --verbose
+      - name: Run tests.
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --workspace --verbose

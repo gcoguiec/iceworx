@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "caseSensitive": false,
+  "ignorePaths": ["target", "examples"],
+  "dictionaries": [
+    "en_US",
+    "public-licenses",
+    "softwareTerms",
+    "filetypes",
+    "misc"
+  ],
+  "words": [
+    "rlib",
+    "rustfmt",
+    "clippy",
+    "rustdoc",
+    "miette",
+    "bitstream",
+    "filesize",
+    "Guillaume",
+    "Coguiec",
+    "serialport",
+    "iceworx",
+    "iceWerx",
+    "iceFUN",
+    "indicatif",
+    "thiserror",
+    "noverify",
+    "repr",
+    "FLASHSIZE",
+    "insta",
+    "tempfile",
+    "Devantech"
+  ]
+}

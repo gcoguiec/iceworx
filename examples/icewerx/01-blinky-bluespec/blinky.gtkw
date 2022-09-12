@@ -1,0 +1,18 @@
+[timestart] 1161
+[size] 1512 916
+[pos] -1 -1
+*-4.000000 1206 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] main.
+[treeopen] main.top.
+[sst_width] 193
+[signals_width] 141
+[sst_expanded] 1
+[sst_vpaned_height] 278
+@28
+main.top.blinky.clk
+main.top.blinky.l1_state
+main.top.blinky.l2_state
+@23
+main.top.blinky.counter[11:0]
+[pattern_trace] 1
+[pattern_trace] 0

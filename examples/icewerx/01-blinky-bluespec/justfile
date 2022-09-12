@@ -1,0 +1,31 @@
+_default:
+  @just --list
+
+# Synthesize, place-and-route and compile this project.
+synth:
+  bsc -u -verilog -g mkBlinky Blinky.bsv
+  yosys -p "synth_ice40 -top mkBlinky -json mkBlinky.json" mkBlinky.v
+  nextpnr-ice40 -r --hx8k --json mkBlinky.json --package cb132 --asc mkBlinky.asc \
+    --opt-timing --pcf ../icewerx.pcf
+  icepack mkBlinky.asc mkBlinky.bin
+
+# Compile the testbench.
+testbench:
+  bsc -u -sim -g mkTestBench TestBench.bsv
+  bsc -e mkTestBench -sim -o tb
+
+# Run the simulation.
+sim: testbench
+  @./tb -V blinky.vcd
+
+# Open GTKWave using generated waves from the testbench.
+waves: sim
+  gtkwave blinky.vcd blinky.gtkw &
+
+# Flash the device.
+flash DEVICE: synth
+  iceworx flash --device {{DEVICE}} ./mkBlinky.bin
+
+# Clean all-the-things
+clean:
+  @rm -f mkBlinky.v *.bo *.ba *.cxx *.h *.o *.asc *.bin *.vcd tb* *.json

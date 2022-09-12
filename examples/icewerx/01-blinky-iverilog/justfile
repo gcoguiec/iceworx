@@ -1,0 +1,33 @@
+_default:
+  @just --list
+
+# Synthesize, place-and-route and compile this project.
+synth:
+  yosys -p "synth_ice40 -top blinky -json blinky.json" blinky.v
+  nextpnr-ice40 -r --hx8k --json blinky.json --package cb132 --asc blinky.asc \
+    --opt-timing --pcf ../icewerx.pcf
+  icepack blinky.asc blinky.bin
+
+# Lint the top module.
+lint:
+  verilator --lint-only -Wall blinky.v
+
+# Compile the testbench.
+testbench:
+  iverilog -o tb blinky.v blinky-bench.v
+
+# Run the simulation.
+sim: testbench
+  vvp tb -lxt2
+
+# Open GTKWave using generated waves from the testbench.
+waves: sim
+  gtkwave blinky.lxt blinky.gtkw &
+
+# Flash the device.
+flash DEVICE: synth
+  iceworx flash --device {{DEVICE}} ./blinky.bin
+
+# Clean all-the-things
+clean:
+  @rm -fr pb *.asc *.bin *.vcd *.json
