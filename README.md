@@ -1,4 +1,7 @@
 <h1 align="center">iceworx</h1>
+<p align="center">
+  <a href="https://github.com/gcoguiec/iceworx/actions/workflows/ci.yml"><img src="https://github.com/gcoguiec/iceworx/actions/workflows/ci.yml/badge.svg" /></a>
+</p>
 <br>
 <p align="center">
   <img src="https://raw.githubusercontent.com/gcoguiec/iceworx/main/.github/icewerx.png" width="180" alt=""/>

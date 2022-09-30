@@ -32,6 +32,8 @@
     "FLASHSIZE",
     "insta",
     "tempfile",
-    "Devantech"
+    "Devantech",
+    "aarch",
+    "msvc"
   ]
 }
