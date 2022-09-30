@@ -31,7 +31,7 @@ cargo install --git https://github.com/gcoguiec/iceworx --tag v0.1.0
 | Linux   | x86_64 | https://github.com/gcoguiec/iceworx/releases/latest/download/iceworx-x86_64-unknown-linux-gnu.zip |
 | macOS   | arch64 | https://github.com/gcoguiec/iceworx/releases/latest/download/iceworx-arch64-apple-darwin.zip      |
 | macOS   | x86_64 | https://github.com/gcoguiec/iceworx/releases/latest/download/iceworx-x86_64-apple-darwin.zip      |
-| Windows | x86_64 | https://github.com/gcoguiec/iceworx/releases/latest/download/iceworx-x86_64-pc-windows-gnu.zip    |
+| Windows | x86_64 | https://github.com/gcoguiec/iceworx/releases/latest/download/iceworx-x86_64-pc-windows-msvc.zip   |
 
 ## Getting Started
 
