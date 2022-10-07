@@ -29,15 +29,13 @@ cargo install --git https://github.com/gcoguiec/iceworx --tag v0.1.0
 
 ## Install from pre-compiled binaries
 
-| OS             | Arch    | URL                                                                                                    |
-| -------------- | ------- | ------------------------------------------------------------------------------------------------------ |
-| Linux          | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-unknown-linux-gnu.zip      |
-| Linux          | aarch64 | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-aarch64-unknown-linux-gnu.zip     |
-| Linux          | armv7   | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-armv7-unknown-linux-gnueabihf.zip |
-| macOS          | aarch64 | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-aarch64-apple-darwin.zip          |
-| macOS          | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-apple-darwin.zip           |
-| Windows (msvc) | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-pc-windows-msvc.zip        |
-| Windows (gnu)  | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-pc-windows-gnu.zip         |
+| OS             | Arch    | URL                                                                                               |
+| -------------- | ------- | ------------------------------------------------------------------------------------------------- |
+| Linux          | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-unknown-linux-gnu.zip |
+| macOS          | aarch64 | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-aarch64-apple-darwin.zip     |
+| macOS          | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-apple-darwin.zip      |
+| Windows (msvc) | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-pc-windows-msvc.zip   |
+| Windows (gnu)  | x86_64  | https://github.com/gcoguiec/iceworx/releases/download/latest/iceworx-x86_64-pc-windows-gnu.zip    |
 
 ## Getting Started
 
