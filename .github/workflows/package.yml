@@ -11,16 +11,13 @@ on:
       ext:
         default: ""
         type: string
-      crosscompile:
-        default: false
-        type: boolean
 jobs:
   build:
     name: Build static binary
     runs-on: ${{ inputs.runs_on }}
     steps:
       - name: Install dependencies
-        run: sudo apt update && sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev
+        run: sudo apt update && sudo apt install -y musl-tools libusb-1.0-0-dev libftdi1-dev libudev-dev
         if: ${{ inputs.runs_on == 'ubuntu-latest' }}
       - name: Install dependencies
         run: brew install libftdi
@@ -36,7 +33,6 @@ jobs:
         with:
           command: build
           args: --release --all --target ${{ inputs.target }}
-          use-cross: ${{ inputs.crosscompile }}
       - name: Bundle release
         uses: papeloto/action-zip@v1
         with:
