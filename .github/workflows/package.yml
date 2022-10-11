@@ -12,6 +12,10 @@ on:
         default: ""
         required: false
         type: string
+      zip:
+        default: false
+        required: false
+        type: boolean
 jobs:
   build:
     name: Build static binary
@@ -23,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: brew install libftdi
         if: ${{ inputs.runs_on == 'macos-latest' }}
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v6
       - name: Checkout source
         uses: actions/checkout@v3
       - name: Setup rust toolchain
@@ -35,15 +42,28 @@ jobs:
           command: build
           args: --release --all --target ${{ inputs.target }}
       - name: Bundle release
+        if: ${{ inputs.zip != true }}
+        run: tar -jcvf iceworx-${{ steps.branch-name.outputs.tag }}-${{ inputs.target }}.tar.gz -C target/${{ inputs.target }}/release/ iceworx${{ inputs.ext }}
+      - name: Bundle release
+        if: ${{ inputs.zip == true }}
         uses: papeloto/action-zip@v1
         with:
           files: target/${{ inputs.target }}/release/iceworx${{ inputs.ext }}
           recursive: true
-          dest: iceworx-${{ inputs.target }}.zip
+          dest: iceworx-${{ steps.branch-name.outputs.tag }}-${{ inputs.target }}.zip
       - name: Upload release
+        if: ${{ inputs.zip != true }}
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: iceworx-${{ inputs.target }}.zip
+          file: iceworx-${{ steps.branch-name.outputs.tag }}-${{ inputs.target }}.tar.gz
+          tag: ${{ github.ref }}
+          overwrite: true
+      - name: Upload release
+        if: ${{ inputs.zip == true }}
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: iceworx-${{ steps.branch-name.outputs.tag }}-${{ inputs.target }}.zip
           tag: ${{ github.ref }}
           overwrite: true

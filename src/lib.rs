@@ -71,7 +71,8 @@ pub fn available_boards(ports: Vec<SerialPortInfo>) -> Vec<Board> {
         .iter()
         .filter(|port| {
             matches!(&port.port_type, SerialPortType::UsbPort(device)
-                if device.product == Some(String::from(PRODUCT_NAME)))
+                if device.product == Some(String::from(PRODUCT_NAME))
+                    || device.product.is_none())
         })
         .for_each(|port| {
             if let SerialPortType::UsbPort(device) = &port.port_type {

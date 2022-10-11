@@ -35,6 +35,8 @@
     "Devantech",
     "aarch",
     "msvc",
-    "armv"
+    "armv",
+    "gnueabihf",
+    "musleabihf"
   ]
 }
