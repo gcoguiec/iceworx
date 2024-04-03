@@ -1,6 +1,6 @@
 # ⚠️ This projet is now archived
 
-The tool still work if you need it but I don't plan to maintain this tool anymore.
+The tool still work if you need it but I don't plan to maintain it anymore.
 
 ---
 
