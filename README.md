@@ -1,3 +1,9 @@
+# ⚠️ This projet is now archived
+
+The tool still work if you need it but I don't plan to maintain this tool anymore.
+
+---
+
 <h1 align="center">iceworx</h1>
 <p align="center">
   <a href="https://github.com/gcoguiec/iceworx/actions/workflows/ci.yml"><img src="https://github.com/gcoguiec/iceworx/actions/workflows/ci.yml/badge.svg" /></a>
